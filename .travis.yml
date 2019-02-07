@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t martelagelo/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run martelagelo/docker-react npm run test -- --coverage
